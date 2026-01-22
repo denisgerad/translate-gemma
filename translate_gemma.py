@@ -29,7 +29,14 @@ def translate_item(item, targets=None):
 
         # Use system message for instruction and user message for source text to avoid prompt-echo
         style_example = load_ref_example(lang)
-        instruction = build_prompt(lang, "", force_single_sentence=force_single, style_example=style_example)
+        # For Malayalam and Kannada, include a short exemplar pair (source -> reference) to bias register
+        pair_example = None
+        if style_example and lang in ('Malayalam', 'Kannada'):
+            src_example = sentences[0].strip() if sentences else ''
+            pair_example = f"Example (source → {lang}):\n{src_example}\n{style_example}"
+            instruction = build_prompt(lang, "", force_single_sentence=force_single, style_example=pair_example)
+        else:
+            instruction = build_prompt(lang, "", force_single_sentence=force_single, style_example=style_example)
         user_text = text or ""
 
         try:
@@ -77,6 +84,16 @@ def translate_item(item, targets=None):
                     continue
                 clean_lines.append(ln)
             final = '\n'.join(clean_lines).strip() or val
+
+            # Additional cleaning: collapse excessive repeated words/phrases (common model artifact)
+            def remove_repeated_patterns(text):
+                # collapse repeated adjacent single words appearing 3+ times -> single instance
+                text = re.sub(r"(\b\w+\b)(?:\s+\1){2,}", r"\1", text, flags=re.IGNORECASE)
+                # collapse repeated adjacent multi-word phrases (2+ words) repeated immediately
+                text = re.sub(r"((?:\b\w+\b\s+){2,}\b\w+\b)(?:\s+\1){1,}", r"\1", text, flags=re.IGNORECASE)
+                return text
+
+            final = remove_repeated_patterns(final)
 
             print(f'-> {lang}: {len(final)} chars')
             results[lang] = final
@@ -190,7 +207,7 @@ def build_prompt(lang, text, force_single_sentence=False, style_example=None):
     suffix_map = {
         'Hindi': 'Use formal standard Hindi; avoid Hinglish and casual Romanized words.',
         'Tamil': 'Prefer pure Tamil vocabulary appropriate to formal writing; avoid excessive Sanskrit/English insertions.',
-        'Malayalam': 'Use formal written Malayalam (standard literary register), not colloquial dialect.',
+        'Malayalam': 'Use formal written Malayalam (standard literary register), not colloquial dialect. Do not use Latin (English) script in the translation; render all terms in Malayalam script and avoid transliterations in Roman letters.',
         'Telugu': 'Use formal written Telugu style appropriate for literary texts.',
         'Kannada': 'Use standard formal Kannada appropriate for written prose.'
     }

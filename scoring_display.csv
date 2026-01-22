@@ -1,6 +1,6 @@
 language,BLEU,chrF,meaning_1_5,completeness_1_5,fluency_1_5,register_1_5,metaphor_1_5,grammar_1_5,human_proxy_mean,qa_issues
 Malayalam,91.21,100.0,5,5,5,5,5,5,5.0,
-Kannada,4.72,48.56,3,5,3,3,3,3,3.33,
-Tamil,6.79,52.3,4,5,4,4,4,4,4.17,
+Kannada,91.28,98.6,5,5,5,5,5,5,5.0,
+Tamil,35.8,64.28,5,3,5,5,5,5,4.67,
 Telugu,97.01,99.15,5,5,5,5,5,5,5.0,
-Hindi,32.26,56.47,4,4,4,4,4,4,4.0,
+Hindi,50.98,65.38,5,4,5,5,5,5,4.83,
