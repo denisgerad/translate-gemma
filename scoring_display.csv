@@ -1,0 +1,6 @@
+language,BLEU,chrF,meaning_1_5,completeness_1_5,fluency_1_5,register_1_5,metaphor_1_5,grammar_1_5,human_proxy_mean,qa_issues
+Malayalam,8.74,40.76,3,3,2,3,3,2,2.67,ENGLISH_WORDS_PRESENT
+Kannada,0.04,5.53,1,5,3,1,1,1,2.0,
+Tamil,8.0,50.88,4,5,4,4,4,4,4.17,
+Telugu,97.01,99.15,5,5,5,5,5,5,5.0,
+Hindi,30.34,55.33,4,5,4,4,4,4,4.17,
