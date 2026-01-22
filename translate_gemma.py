@@ -24,18 +24,62 @@ def translate_item(item, targets=None):
             results['Source'] = text
             continue
         # build prompt with deterministic single-sentence heuristic and per-language hints
-        # decide whether to force single-sentence: only when source is exactly one sentence and short
         sentences = re.split(r'(?<=[.!?])\s+', text.strip()) if text else [""]
         force_single = (len([s for s in sentences if s.strip()]) == 1 and len(text) <= 250)
-        prompt = build_prompt(lang, text, force_single)
+
+        # Use system message for instruction and user message for source text to avoid prompt-echo
+        style_example = load_ref_example(lang)
+        instruction = build_prompt(lang, "", force_single_sentence=force_single, style_example=style_example)
+        user_text = text or ""
+
         try:
             print(f'Translating to {lang}...')
-            resp = ollama.chat(model=model, messages=[{'role':'user','content':prompt}])
+            resp = ollama.chat(
+                model=model,
+                messages=[
+                    {'role': 'system', 'content': instruction},
+                    {'role': 'user', 'content': user_text}
+                ]
+            )
             # strip surrounding whitespace/newlines
-            val = resp.get('message', {}).get('content') or ''
+            val = (resp.get('message', {}) or {}).get('content', '') or ''
             val = val.strip()
-            print(f'-> {lang}: {len(val)} chars')
-            results[lang] = val
+
+            # validation: if model echoed instruction block or the English source, retry once with a minimal prompt
+            def looks_like_instruction_echo(s):
+                if not s:
+                    return False
+                lower = s.lower()
+                # contains explicit prompt markers
+                if 'text:' in lower or '\n-' in s or '\n•' in s:
+                    return True
+                # echoed the source exactly (strong signal)
+                if user_text.strip() and user_text.strip() in s:
+                    return True
+                return False
+
+            if looks_like_instruction_echo(val):
+                print(f'Validation: detected instruction-echo for {lang}, retrying with minimal prompt...')
+                resp2 = ollama.chat(
+                    model=model,
+                    messages=[{'role': 'user', 'content': f'Translate only: {user_text}'}]
+                )
+                val = (resp2.get('message', {}) or {}).get('content', '') or ''
+                val = val.strip()
+
+            # post-process: remove obvious instruction remnants (leading bullets/labels)
+            clean_lines = []
+            for ln in val.splitlines():
+                s = ln.strip()
+                if not s:
+                    continue
+                if s.startswith('-') or s.lower().startswith('text:') or s.lower().startswith('use '):
+                    continue
+                clean_lines.append(ln)
+            final = '\n'.join(clean_lines).strip() or val
+
+            print(f'-> {lang}: {len(final)} chars')
+            results[lang] = final
         except Exception as e:
             print(f'ERROR translating to {lang}: {e}')
             results[lang] = f'ERROR: {e}'
@@ -109,7 +153,22 @@ def main():
             print(translation.get(key, ''))
 
 
-def build_prompt(lang, text, force_single_sentence=False):
+def load_ref_example(lang):
+    """Load first non-empty line from refs/<lang>.txt if present."""
+    try:
+        fname = os.path.join('refs', f"{lang.lower()}.txt")
+        if os.path.exists(fname):
+            with open(fname, 'r', encoding='utf-8') as f:
+                for ln in f:
+                    s = ln.strip()
+                    if s:
+                        return s
+    except Exception:
+        pass
+    return None
+
+
+def build_prompt(lang, text, force_single_sentence=False, style_example=None):
     """Construct a deterministic, language-aware translation prompt.
 
     - `lang` is the target language name (string)
@@ -125,8 +184,6 @@ def build_prompt(lang, text, force_single_sentence=False):
         "- Preserve original punctuation and sentence structure where possible.\n"
         "- Output only the translated text (no surrounding quotes).\n"
         "- If any phrase cannot be translated, output exactly: UNABLE_TO_TRANSLATE\n\n"
-        "Text:\n"
-        + (text or "")
     )
 
     # per-language strict preferences
@@ -141,9 +198,13 @@ def build_prompt(lang, text, force_single_sentence=False):
     if lang in suffix_map:
         base += "\n" + suffix_map[lang]
 
+    if style_example:
+        base += "\n\nStyle example (do not copy verbatim; match tone and register):\n" + style_example
+
     if force_single_sentence:
         base += "\n\nNote: The source is a single short sentence; keep the translation to one sentence only."
 
+    # Do NOT include the source text in the system instruction; pass it as the user message.
     return base
 
 if __name__ == '__main__':
