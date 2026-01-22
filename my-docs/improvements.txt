@@ -1,0 +1,309 @@
+✅ Corrected reference translations (all five languages)
+
+✅ A practical scoring rubric
+
+✅ Automatic QA checks (Python code)
+
+✅ A benchmark set (easy → literary)
+
+You can copy-paste everything directly.
+
+1️⃣ Corrected reference translations (gold standard)
+
+Source:
+
+In the cacophonous theatre of our public discourse, nuance is routinely sacrificed at the altar of indignation, subtlety is throttled by the stranglehold of sensationalism, and reasoned dissent is caricatured as disloyalty by those who mistake decibel levels for intellectual depth.
+
+Hindi (formal, literary)
+
+हमारी सार्वजनिक चर्चा के इस कोलाहलपूर्ण रंगमंच में, बारीकियों को नियमित रूप से आक्रोश की वेदी पर बलि चढ़ा दिया जाता है, सूक्ष्मता को सनसनीखेज़ी के शिकंजे में घोंट दिया जाता है, और विवेकपूर्ण असहमति को उन लोगों द्वारा देशद्रोह के रूप में चित्रित किया जाता है जो डेसिबल स्तरों को बौद्धिक गहराई समझ बैठते हैं।
+
+Tamil (formal written Tamil)
+
+நமது பொதுவெளி உரையாடலின் கூச்சல்மிக்க நாடக மேடையில், நுணுக்கம் அடிக்கடி கோபத்தின் பலிபீடத்தில் பலியாக்கப்படுகிறது; நுண்மையான சிந்தனை உணர்ச்சிவசப்படுத்தும் செய்தியளிப்பின் இறுக்கமான பிடியில் நெறிக்கப்படுகிறது; மேலும், ஒலியின் அளவையே அறிவுத் தளமாகக் கருதும் சிலர், விவேகபூர்வமான எதிர்ப்பைத் துரோகமாக சித்தரிக்கின்றனர்.
+
+Telugu (formal literary)
+
+మన ప్రజా చర్చల శబ్దభరిత నాటకరంగంలో, సూక్ష్మత తరచూ ఆగ్రహం అనే బలిపీఠంపై బలిగా మారుతుంది; సున్నితమైన ఆలోచన సంచలనాత్మకత అనే ఉక్కుపట్టులో నలిగిపోతుంది; అలాగే, డెసిబెల్ స్థాయిలనే మేధస్సు లోతుగా పొరబడే వారు తర్కబద్ధమైన భిన్నాభిప్రాయాన్ని కూడా అవిశ్వాసంగా చిత్రీకరిస్తారు.
+
+Malayalam (formal written)
+
+നമ്മുടെ പൊതുസംവാദത്തിന്റെ കോലാഹലഭരിതമായ നാടകവേദിയിൽ, സൂക്ഷ്മത പലപ്പോഴും ക്രോധത്തിന്റെ യാഗപീഠത്തിൽ ബലിയർപ്പിക്കപ്പെടുന്നു; സുതാര്യമായ ചിന്ത sensationalism എന്ന ശക്തമായ പിടിയിൽ ശ്വാസംമുട്ടിക്കപ്പെടുന്നു; കൂടാതെ, ശബ്ദത്തിന്റെ ഉയരത്തെ ബൗദ്ധിക ആഴമായി തെറ്റിദ്ധരിക്കുന്ന ചിലർ വിവേകപൂർവമായ ഭിന്നാഭിപ്രായത്തെ വിശ്വാസഘാതമായി ചിത്രീകരിക്കുന്നു.
+
+Kannada (formal literary)
+
+ನಮ್ಮ ಸಾರ್ವಜನಿಕ ಚರ್ಚೆಗಳ ಗದ್ದಲಭರಿತ ನಾಟಕಮಂದಿರದಲ್ಲಿ, ಸೂಕ್ಷ್ಮತೆ ಆಗಾಗ್ಗೆ ಆಕ್ರೋಶದ ಯಜ್ಞವೇದಿಯಲ್ಲಿ ಬಲಿಯಾಗುತ್ತದೆ; ಸೂಕ್ಷ್ಮಚಿಂತನೆ ಸಂಚಲನಾತ್ಮಕತೆಯ ಕಬ್ಬಿಣದ ಹಿಡಿತದಲ್ಲಿ ನಿಗ್ರಹಿಸಲ್ಪಡುತ್ತದೆ; ಹಾಗೆಯೇ, ಶಬ್ದದ ಮಟ್ಟವನ್ನೇ ಬೌದ್ಧಿಕ ಆಳವೆಂದು ತಪ್ಪಾಗಿ ಭಾವಿಸುವವರು ತರ್ಕಬದ್ಧ ವಿರೋಧವನ್ನೂ ನಿಷ್ಠಾಹೀನತೆಯಾಗಿ ಚಿತ್ರಿಸುತ್ತಾರೆ.
+
+2️⃣ Scoring rubric (human evaluation)
+
+Score each category from 1–5.
+
+Category	1	3	5
+Meaning accuracy	Wrong	Partial	Exact
+Completeness	Missing ideas	Minor loss	Full
+Fluency	Broken	Acceptable	Native-like
+Register & tone	Wrong	Mixed	Formal literary
+✅ Corrected reference translations (all five languages)
+
+✅ A practical scoring rubric
+
+✅ Automatic QA checks (Python code)
+
+✅ A benchmark set (easy → literary)
+
+You can copy-paste everything directly.
+
+1️⃣ Corrected reference translations (gold standard)
+
+Source:
+
+In the cacophonous theatre of our public discourse, nuance is routinely sacrificed at the altar of indignation, subtlety is throttled by the stranglehold of sensationalism, and reasoned dissent is caricatured as disloyalty by those who mistake decibel levels for intellectual depth.
+
+Hindi (formal, literary)
+
+हमारी सार्वजनिक चर्चा के इस कोलाहलपूर्ण रंगमंच में, बारीकियों को नियमित रूप से आक्रोश की वेदी पर बलि चढ़ा दिया जाता है, सूक्ष्मता को सनसनीखेज़ी के शिकंजे में घोंट दिया जाता है, और विवेकपूर्ण असहमति को उन लोगों द्वारा देशद्रोह के रूप में चित्रित किया जाता है जो डेसिबल स्तरों को बौद्धिक गहराई समझ बैठते हैं।
+
+Tamil (formal written Tamil)
+
+நமது பொதுவெளி உரையாடலின் கூச்சல்மிக்க நாடக மேடையில், நுணுக்கம் அடிக்கடி கோபத்தின் பலிபீடத்தில் பலியாக்கப்படுகிறது; நுண்மையான சிந்தனை உணர்ச்சிவசப்படுத்தும் செய்தியளிப்பின் இறுக்கமான பிடியில் நெறிக்கப்படுகிறது; மேலும், ஒலியின் அளவையே அறிவுத் தளமாகக் கருதும் சிலர், விவேகபூர்வமான எதிர்ப்பைத் துரோகமாக சித்தரிக்கின்றனர்.
+
+Telugu (formal literary)
+
+మన ప్రజా చర్చల శబ్దభరిత నాటకరంగంలో, సూక్ష్మత తరచూ ఆగ్రహం అనే బలిపీఠంపై బలిగా మారుతుంది; సున్నితమైన ఆలోచన సంచలనాత్మకత అనే ఉక్కుపట్టులో నలిగిపోతుంది; అలాగే, డెసిబెల్ స్థాయిలనే మేధస్సు లోతుగా పొరబడే వారు తర్కబద్ధమైన భిన్నాభిప్రాయాన్ని కూడా అవిశ్వాసంగా చిత్రీకరిస్తారు.
+
+Malayalam (formal written)
+
+നമ്മുടെ പൊതുസംവാദത്തിന്റെ കോലാഹലഭരിതമായ നാടകവേദിയിൽ, സൂക്ഷ്മത പലപ്പോഴും ക്രോധത്തിന്റെ യാഗപീഠത്തിൽ ബലിയർപ്പിക്കപ്പെടുന്നു; സുതാര്യമായ ചിന്തയുടെ സംഭ്രമജനക പ്രചരണത്തിന്റെ ശക്തമായ പിടിയില്‍ ശ്വാസംമുട്ടിക്കപ്പെടുന്നു; കൂടാതെ, ശബ്ദത്തിന്റെ ഉയരത്തെ ബൗദ്ധിക ആഴമായി തെറ്റിദ്ധരിക്കുന്ന ചിലർ വിവേകപൂർവമായ ഭിന്നാഭിപ്രായത്തെ വിശ്വാസഘാതമായി ചിത്രീകരിക്കുന്നു.
+
+Kannada (formal literary)
+
+ನಮ್ಮ ಸಾರ್ವಜನಿಕ ಚರ್ಚೆಗಳ ಗದ್ದಲಭರಿತ ನಾಟಕಮಂದಿರದಲ್ಲಿ, ಸೂಕ್ಷ್ಮತೆ ಆಗಾಗ್ಗೆ ಆಕ್ರೋಶದ ಯಜ್ಞವೇದಿಯಲ್ಲಿ ಬಲಿಯಾಗುತ್ತದೆ; ಸೂಕ್ಷ್ಮಚಿಂತನೆ ಸಂಚಲನಾತ್ಮಕತೆಯ ಕಬ್ಬಿಣದ ಹಿಡಿತದಲ್ಲಿ ನಿಗ್ರಹಿಸಲ್ಪಡುತ್ತದೆ; ಹಾಗೆಯೇ, ಶಬ್ದದ ಮಟ್ಟವನ್ನೇ ಬೌದ್ಧಿಕ ಆಳವೆಂದು ತಪ್ಪಾಗಿ ಭಾವಿಸುವವರು ತರ್ಕಬದ್ಧ ವಿರೋಧವನ್ನೂ ನಿಷ್ಠಾಹೀನತೆಯಾಗಿ ಚಿತ್ರಿಸುತ್ತಾರೆ.
+
+2️⃣ Scoring rubric (human evaluation)
+
+Score each category from 1–5.
+
+Category	1	3	5
+Meaning accuracy	Wrong	Partial	Exact
+Completeness	Missing ideas	Minor loss	Full
+Fluency	Broken	Acceptable	Native-like
+Register & tone	Wrong	Mixed	Formal literary
+Metaphor handling	Lost	Simplified	Preserved
+Grammar	Many errors	Few	Clean
+Final score
+Total = sum / 30
+
+
+Interpretation:
+
+26–30 → Excellent
+
+20–25 → Good
+
+14–19 → Weak
+
+<14 → Fail
+
+3️⃣ Automatic QA checks (Python)
+
+These catch common MT failures before human review.
+
+import re
+import unicodedata
+
+SCRIPTS = {
+    "Hindi": r"\u0900-\u097F",
+    "Tamil": r"\u0B80-\u0BFF",
+    "Telugu": r"\u0C00-\u0C7F",
+    "Malayalam": r"\u0D00-\u0D7F",
+    "Kannada": r"\u0C80-\u0CFF"
+}
+
+def qa_checks(source, translation, lang):
+    issues = []
+
+    # 1. Empty
+    if not translation.strip():
+        issues.append("EMPTY_OUTPUT")
+
+    # 2. English leakage
+    if re.search(r"[A-Za-z]{4,}", translation):
+        issues.append("ENGLISH_WORDS_PRESENT")
+
+    # 3. Wrong script
+    if not re.search(f"[{SCRIPTS[lang]}]", translation):
+        issues.append("WRONG_SCRIPT")
+
+    # 4. Too short
+    if len(translation) < 0.6 * len(source):
+        issues.append("TOO_SHORT")
+
+    # 5. Repeated sentence
+    parts = translation.split("।") if lang == "Hindi" else translation.split(".")
+    if len(parts) >= 3 and parts[-1] == parts[-2]:
+        issues.append("DUPLICATED_SEGMENT")
+
+    # 6. Instruction leakage
+    bad_words = ["translate", "style", "output", "use formal"]
+    if any(w.lower() in translation.lower() for w in bad_words):
+        issues.append("PROMPT_LEAKAGE")
+
+    return issues
+
+
+Usage:
+
+issues = qa_checks(source_text, model_output, "Malayalam")
+if issues:
+    print("QA FAIL:", issues)
+
+4️⃣ Benchmark sentence set (easy → literary)
+
+Use these for structured testing.
+
+Easy
+
+Where is the nearest hospital?
+
+Medium
+
+Although the project was delayed due to unforeseen circumstances, the team remained cautiously optimistic about meeting the revised deadline.
+
+Hard
+
+The committee’s decision, though outwardly pragmatic, concealed a labyrinth of political compromises and moral equivocations.
+
+Literary (Tharoor-style)
+
+In the cacophonous theatre of our public discourse, nuance is routinely sacrificed at the altar of indignation…
+
+Extra-hard philosophical
+
+When institutions prioritise procedural obedience over ethical reflection, they cultivate citizens who comply efficiently yet contemplate rarely, thereby transforming conscience into a bureaucratic inconvenience.
+
+Cultural–political
+
+Nationalism, when weaponised as a substitute for introspection, becomes less an expression of collective pride and more an instrument for manufacturing convenient amnesia.
+
+----------------------improvements1------------------------------------
+✅ Malayalam — Excellent (5/5)
+
+Your text:
+
+നമ്മുടെ പൊതു സംവാദത്തിന്റെ കോലാഹലഭരിതമായ നാടകവേദിയിൽ, സൂക്ഷ്മത പലപ്പോഴും ക്രോധത്തിന്റെ യാഗപീഠത്തിൽ ബലിയർപ്പിക്കപ്പെടുന്നു; സുതാര്യമായ ചിന്തയുടെ സംഭ്രമജനക പ്രചരണത്തിന്റെ ശക്തമായ പിടിയില്‍ ശ്വാസംമുട്ടിക്കപ്പെടുന്നു; കൂടാതെ, ശബ്ദത്തിന്റെ ഉയരത്തെ ബൗദ്ധിക ആഴമായി തെറ്റിദ്ധരിക്കുന്ന ചിലർ വിവേകപൂർവമായ ഭിന്നാഭ്യാപ്തിയെ വിശ്വാസഘാതമായി ചിത്രീകരിക്കുന്നു.
+
+Assessment
+
+Meaning: ✅ exact
+
+Metaphors: ✅ preserved
+
+Register: ✅ formal literary
+
+Grammar: ✅ clean
+
+Minor optional polish:
+
+“സംഭ്രമജനക പ്രചരണം” → “അതിരൂക്ഷ പ്രചാരണം” (recommended) — either is fine.
+
+But current version is perfectly acceptable.
+
+✅ Kannada — Now excellent (5/5)
+
+Your updated version:
+
+ನಮ್ಮ ಸಾರ್ವಜನಿಕ ಚರ್ಚೆಗಳ ಗದ್ದಲಭರಿತ ನಾಟಕಮಂದಿರದಲ್ಲಿ, ಸೂಕ್ಷ್ಮತೆ ಆಗಾಗ್ಗೆ ಆಕ್ರೋಶದ ಯಜ್ಞವೇದಿಯಲ್ಲಿ ಬಲಿಯಾಗುತ್ತದೆ; ಸೂಕ್ಷ್ಮಚಿಂತನೆ ಸಂಚಲನಾತ್ಮಕತೆಯ ಕಬ್ಬಿಣದ ಹಿಡಿತದಲ್ಲಿ ನಿಗ್ರಹಿಸಲ್ಪಡುತ್ತದೆ; ಹಾಗೆಯೇ, ಶಬ್ದದ ಮಟ್ಟವನ್ನೇ ಬೌದ್ಧಿಕ ಆಳವೆಂದು ತಪ್ಪಾಗಿ ಭಾವಿಸುವವರು ತರ್ಕಬದ್ಧ ವಿರೋಧವನ್ನೂ ನಿಷ್ಠಾಹೀನತೆಯಾಗಿ ಚಿತ್ರಿಸುತ್ತಾರೆ.
+
+Assessment
+
+All key ideas preserved ✅
+
+Metaphors preserved ✅
+
+Tone correct ✅
+
+Tiny polish:
+
+Correct typo: “ಸೂಕ್ಷಮಚಿಂತನೆ” → “ಸೂಕ್ಷ್ಮಚಿಂತನೆ”.
+
+Otherwise: excellent.
+
+✅ Tamil — Very good (4.5/5)
+
+Your text:
+
+நம் பொது விவாதத்தின் கூச்சலிடும் நாடக மேடையில், நுணுக்கம் தொடர்ந்து கோபத்தின் பலிபீடத்தில் பலியாக்கப்படுகிறது; நுட்பம், பரபரப்பான செய்திகளின் பிடியில் ஒடுக்கப்படுகிறது; மேலும், பகுத்தறிவான எதிர்ப்பு கூட ஒலியின் அளவையே அறிவுத் தளமாகக் கருதும் சிலர் துரோகமாக சித்தரிக்கின்றனர்.
+
+Assessment
+
+Meaning preserved ✅
+
+Metaphors preserved ✅
+
+Style formal ✅
+
+Minor corrections:
+
+Subject–verb agreement at the end: change “சித்தரிக்கப்படுகிறது” → “சித்தரிக்கின்றனர்” and remove the extra comma before “பகுத்தறிவான”.
+
+Optional improved final line:
+
+மேலும், பகுத்தறிவான எதிர்ப்பைக் கூட ஒலியின் அளவையே அறிவுத் தளமாகக் கருதும் சிலர் துரோகமாக சித்தரிக்கின்றனர்.
+
+Still very strong.
+
+✅ Telugu — Excellent (5/5)
+
+Your text:
+
+మా ప్రజా చర్చల శబ్దభరిత నాటక రంగంలో, సూక్ష్మత తరచూ ఆగ్రహం అనే బలిపీఠంపై బలిగా మారుతుంది; సంయమనం సంచలనాత్మకత అనే ఉక్కుపట్టులో నలిగిపోతుంది; అలాగే, డెసిబెల్ స్థాయిలనే మేధస్సు లోతుగా పొరబడే వారు తర్కబద్ధమైన విభేదాన్ని కూడా అవిశ్వాసంగా చిత్రీకరిస్తారు.
+
+Assessment
+
+Semantics: ✅
+
+Metaphors: ✅
+
+Fluency: ✅
+
+Register: ✅
+
+No changes needed.
+
+✅ Hindi — Good, small fix (4.5/5)
+
+Your text:
+
+बारीकियों को अक्सर आक्रोश की भेंट चढ़ा दिया जाता है, सूक्ष्मता को सनसनीखेजता के आगोश में घोंट दिया जाता है, और तर्कसंगत असहमति को उन लोगों द्वारा देशद्रोह का रूप दिया जाता है जो आवाज़ की मात्रा को बौद्धिक गहराई समझ बैठते हैं।
+
+Main issue: the nuance/subtlety distinction — avoid repeating the same word.
+
+Better distinction:
+
+nuance → बारीकियाँ
+
+subtlety → सूक्ष्मता
+
+Suggested correction:
+
+Replace first clause:
+
+"सूक्ष्मता को अक्सर आक्रोश की भेंट चढ़ दिया जाता है"
+
+with:
+
+"बारीकियों को अक्सर आक्रोश की भेंट चढ़ा दिया जाता है"
+
+Full improved version:
+
+हमारे सार्वजनिक संवाद के इस शोरगुल भरे माहौल में, बारीकियों को अक्सर आक्रोश की भेंट चढ़ा दिया जाता है, सूक्ष्मता को सनसनीखेजता के आगोश में घोंट दिया जाता है, और तर्कसंगत असहमति को उन लोगों द्वारा देशद्रोह का रूप दिया जाता है जो आवाज़ की मात्रा को बौद्धिक गहराई समझ बैठते हैं।
+
+Final quality summary
+Language	Status
+Malayalam	⭐⭐⭐⭐⭐
+Kannada	⭐⭐⭐⭐⭐
+Tamil	⭐⭐⭐⭐½
+Telugu	⭐⭐⭐⭐⭐
+Hindi	⭐⭐⭐⭐½
+
+This is excellent multilingual output for a difficult literary sentence.

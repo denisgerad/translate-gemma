@@ -1,0 +1,49 @@
+Fully automated Python (TTS + video) — one slide per language, native-language audio, no subtitle track.
+
+Overview
+- One slide per language in the same sequence as `batch_output.json` / `batch.json`.
+- Slide displays the translated text as-is (no separate subtitle file).
+- Audio is generated in the target language (TTS).
+- Final output: single concatenated MP4 (`video_out/final.mp4`).
+
+Requirements
+- `ffmpeg` (system)
+- Python packages: `TTS` (Coqui TTS), `Pillow` (image generation). Optionally `gTTS` as a fallback for languages without an installed TTS model.
+
+Install (example on Ubuntu/WSL):
+```bash
+sudo apt install ffmpeg
+pip install TTS pillow gTTS
+```
+
+Notes on fonts
+- For Indic scripts you need a font that supports the script (Noto fonts recommended):
+  - `NotoSansKannada-Regular.ttf`, `NotoSansMalayalam-Regular.ttf`, `NotoSansTamil-Regular.ttf`, `NotoSansTelugu-Regular.ttf`, `NotoSansDevanagari-Regular.ttf`.
+- Place them in a `fonts/` directory or install system-wide. The script falls back to the default font if missing but rendering quality may suffer.
+
+Script: `tools/make_video.py`
+
+Run
+```bash
+python tools/make_video.py
+```
+
+Output
+```
+video_out/
+  00_Malayalam.mp4
+  01_Kannada.mp4
+  02_Tamil.mp4
+  03_Telugu.mp4
+  04_Hindi.mp4
+  final.mp4
+```
+
+Notes & limitations
+- For high-quality Indic TTS you may need to download specific Coqui models; model availability varies by language.
+- `gTTS` fallback requires network access and may not produce perfectly natural literary voice.
+- Ensure fonts in `fonts/` support the scripts to avoid missing glyphs.
+- The script renders the translated text on-screen (not as a separate subtitle track), matching your requirement of "language text display as is".
+
+References
+- Uses `ffmpeg` to combine image + audio and to concat segments. Ensure `ffmpeg` is installed and in PATH.

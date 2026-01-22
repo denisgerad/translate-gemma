@@ -1,0 +1,17 @@
+Easy:
+Where is the nearest hospital?
+
+Medium:
+Although the project was delayed due to unforeseen circumstances, the team remained cautiously optimistic about meeting the revised deadline.
+
+Hard:
+The committee’s decision, though outwardly pragmatic, concealed a labyrinth of political compromises and moral equivocations.
+
+Literary (Tharoor-style):
+In the cacophonous theatre of our public discourse, nuance is routinely sacrificed at the altar of indignation, subtlety is throttled by the stranglehold of sensationalism, and reasoned dissent is caricatured as disloyalty by those who mistake decibel levels for intellectual depth.
+
+Extra-hard philosophical:
+When institutions prioritise procedural obedience over ethical reflection, they cultivate citizens who comply efficiently yet contemplate rarely, thereby transforming conscience into a bureaucratic inconvenience.
+
+Cultural–political:
+Nationalism, when weaponised as a substitute for introspection, becomes less an expression of collective pride and more an instrument for manufacturing convenient amnesia.

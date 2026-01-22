@@ -1,8 +1,16 @@
 {
   "sequence": ["English", "Malayalam", "Kannada", "Tamil", "Telugu"],
   "items": [
+    
     {
-      "text": "Ah bearer of gourmet delights, glad you found the leisure to attend to my gastronomical requirements. I am feeling quite peckish, and a trifle breakfasty, if you get my drift, though it’s closer to lunch. Two eggs, lightly fried, sunny side up would just about hit the spot. And if you can manage some fried tomatoes, with bacon and sausages to go with it, my cup of joy will run over. And speaking of cups, a pot of black coffee, with a cosy to cover it, will be perfect. I will eschew sugar. Mildly diabetic, you know. Doctor’s orders. And an unchipped cup and saucer, Wedgwood or Royal Doulton preferably"
+      "text": "The Shashi Tharoor Test for Googls's Translation Model - TranslateGemma\nCheck out the results on the last screen",
+      "meta": {
+        "translate": false,
+        "scope": "English"
+      }
+    },
+    {
+      "text": "In the cacophonous theatre of our public discourse, nuance is routinely sacrificed at the altar of indignation, subtlety is throttled by the stranglehold of sensationalism, and reasoned dissent is caricatured as disloyalty by those who mistake decibel levels for intellectual depth."
     }
   ]
 }

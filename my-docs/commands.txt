@@ -1,0 +1,68 @@
+# List installed models
+ollama list
+
+# Set env var for this session and run the script
+$env:OLLAMA_MODEL = 'translategemma:4b'
+python translate_gemma.py
+
+# Persist for future sessions (PowerShell only — adds to user env)
+setx OLLAMA_MODEL "translategemma:4b"
+
+python translate_gemma.py
+
+netstat -aon | findstr :11434
+
+Stop-Process -Id 20292 -Force  
+taskkill /PID <PID> /F
+
+------------------------- Ollama quick commands -------------------------
+
+# List installed / available local models
+ollama list
+
+# Pull a model (download to local storage)
+# Example: pull the TranslateGemma 4b image (if available on your registry)
+ollama pull translategemma:4b
+
+# Run or start a model / daemon
+# Depending on your Ollama CLI version the exact command may vary:
+# - some versions use `ollama start` or `ollama server start` to start the daemon
+# - you can also run a specific model directly (interactive) with `ollama run <model>`
+# For our scripts we use the environment variable approach (recommended):
+
+# PowerShell (temporary for this session)
+$env:OLLAMA_MODEL = 'translategemma:4b'
+python translate_gemma.py
+
+# Persist for future sessions (PowerShell only — adds to user env)
+setx OLLAMA_MODEL "translategemma:4b"
+
+# If you prefer to run the model directly with ollama (interactive), try:
+# ollama run translategemma:4b
+
+# Stop or restart the Ollama daemon (if your CLI supports it)
+# ollama stop
+# ollama server stop
+# or start again:
+# ollama start
+# ollama server start
+
+------------------------- Kill port / debug listener -------------------------
+# If you see an error like "address already in use" on port 11434, find the PID:
+netstat -aon | findstr :11434
+Get-NetTCPConnection -LocalPort 11434 | Select-Object LocalAddress,LocalPort,State,OwningProcess
+
+# Verify which process is that PID:
+tasklist /FI "PID eq <PID>"
+
+# Kill by PID (PowerShell):
+Stop-Process -Id <PID> -Force
+
+# Or using the Windows taskkill command (cmd / PowerShell):
+taskkill /PID <PID> /F
+
+# Notes:
+# - If the process is `ollama.exe`, prefer `ollama stop` first to allow graceful shutdown.
+# - Replace <PID> with the numeric PID from the netstat/Get-NetTCPConnection output.
+# - If you regularly see stale processes, check for background services or multiple terminals
+#   that may have started Ollama previously.
