@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 import ollama
 
 model = os.getenv('OLLAMA_MODEL', 'translategemma:4b')
@@ -22,13 +23,11 @@ def translate_item(item, targets=None):
         if lang.lower() in ('english', 'source'):
             results['Source'] = text
             continue
-        # clearer instructions to preserve meaning and detail in a single-line translation
-        prompt = (
-            f'Translate the following text to {lang}. '
-            f'Provide a fluent, natural translation that preserves the full meaning and level of detail. '
-            f'Output a single sentence only and do NOT include explanations, breakdowns, or transliterations. '
-            f'If you cannot translate a phrase, write UNABLE_TO_TRANSLATE. Text: "{text}"'
-        )
+        # build prompt with deterministic single-sentence heuristic and per-language hints
+        # decide whether to force single-sentence: only when source is exactly one sentence and short
+        sentences = re.split(r'(?<=[.!?])\s+', text.strip()) if text else [""]
+        force_single = (len([s for s in sentences if s.strip()]) == 1 and len(text) <= 250)
+        prompt = build_prompt(lang, text, force_single)
         try:
             print(f'Translating to {lang}...')
             resp = ollama.chat(model=model, messages=[{'role':'user','content':prompt}])
@@ -108,6 +107,44 @@ def main():
             print(f'[{lang}]')
             key = 'Source' if lang.lower() in ('english','source') else lang
             print(translation.get(key, ''))
+
+
+def build_prompt(lang, text, force_single_sentence=False):
+    """Construct a deterministic, language-aware translation prompt.
+
+    - `lang` is the target language name (string)
+    - `text` is the source text to translate
+    - `force_single_sentence` when True will add an explicit note to keep translation to one sentence
+    """
+    lang = (lang or '').strip()
+    base = (
+        f"Translate to {lang}:\n"
+        "- Use a formal, natural literary tone appropriate to standard written " + (lang or "the target language") + ".\n"
+        "- Preserve full meaning, details, metaphors, and rhetorical style; do not summarize or simplify.\n"
+        "- Do not add explanations, notes, transliterations, language tags, or metadata.\n"
+        "- Preserve original punctuation and sentence structure where possible.\n"
+        "- Output only the translated text (no surrounding quotes).\n"
+        "- If any phrase cannot be translated, output exactly: UNABLE_TO_TRANSLATE\n\n"
+        "Text:\n"
+        + (text or "")
+    )
+
+    # per-language strict preferences
+    suffix_map = {
+        'Hindi': 'Use formal standard Hindi; avoid Hinglish and casual Romanized words.',
+        'Tamil': 'Prefer pure Tamil vocabulary appropriate to formal writing; avoid excessive Sanskrit/English insertions.',
+        'Malayalam': 'Use formal written Malayalam (standard literary register), not colloquial dialect.',
+        'Telugu': 'Use formal written Telugu style appropriate for literary texts.',
+        'Kannada': 'Use standard formal Kannada appropriate for written prose.'
+    }
+
+    if lang in suffix_map:
+        base += "\n" + suffix_map[lang]
+
+    if force_single_sentence:
+        base += "\n\nNote: The source is a single short sentence; keep the translation to one sentence only."
+
+    return base
 
 if __name__ == '__main__':
     main()
